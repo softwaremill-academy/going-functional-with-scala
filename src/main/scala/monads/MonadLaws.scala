@@ -8,7 +8,7 @@ trait Monad[F[_]] {
   def flatMap[A, B](value: F[A])(f: A => F[B]): F[B]
 }
 
-object Laws extends App {
+object MonadLaws extends App {
   def throwsException = throw new Exception("oops")
 
   /**
