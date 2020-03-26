@@ -4,6 +4,8 @@ trait Monad[F[_]] {
   def pure[A](value: A): F[A]
 
   def flatMap[A, B](value: A)(f: A => F[B]): F[B]
+
+  def map[A, B](value: F[A]) = ???
 }
 
 /**
