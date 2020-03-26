@@ -8,14 +8,24 @@ trait Monad[F[_]] {
   def flatMap[A, B](value: F[A])(f: A => F[B]): F[B]
 }
 
-object MonadLaws extends App {
+object LeftIdentityChecking extends App {
+
+  /**
+    * Does it break Left Identity?
+    */
+
   def throwsException = throw new Exception("oops")
+
+  Option.apply(1).flatMap(throwsException) == throwsException
+}
+
+object LeftIdentity extends App {
 
   /**
     * Left Identity
-
+    *
     * pure(a).flatMap(func) == func(a)
-
+    *
     */
 
   def func(x: Int): Option[Int] = Some(x + 1)
@@ -34,25 +44,37 @@ object MonadLaws extends App {
 
   println(s"Left identity checking with None $resNone")
 
+}
+
+object RightIdentity extends App {
   /**
     * Right Identity
-
+    *
     * m.flatMap(pure) == m
-
+    *
     */
+
+  val optInt = Some(1)
 
   val rightIdentityChecking = optInt.flatMap(Option.apply) == optInt
 
   println(s"Right identity checking: $rightIdentityChecking")
+}
 
+object Associativity extends App {
   /**
     * Associativity
-
+    *
     * m.flatMap(f).flatMap(g) == m.flatMap(x => f(x).flatMap(g))
-
+    *
     */
 
-  //Does it break Left Identity?
+  val optInt = Some(1)
 
-  //Option.apply(1).flatMap(throwsException) == throwsException
+  val f: Int => Option[Int] = x => Some(x + 1)
+  val g: Int => Option[Int] = x => Some(x + 10)
+
+  val associativity = optInt.flatMap(f).flatMap(g) == optInt.flatMap(f(_).flatMap(g))
+
+  println(s"Associativity: $associativity")
 }
