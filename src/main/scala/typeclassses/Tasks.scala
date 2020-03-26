@@ -20,11 +20,20 @@ object PersonDetailsEquals {
 }
 
 /**
-Implement Companion Object with an apply method.
-  The method takes two parameters of A and an implicit Equal[A]
+  * Implement Companion Object with an apply method.
+  * The method takes two parameters of A and an implicit Equal[A]
   */
 
-object Equals extends App {
+object EqualsTask extends App {
+  //check your solution here
+}
+
+/**
+  * Implement Companion Object with an apply method.
+  * The method take only implicit Equal[A]
+  */
+
+object ImplicitEqualsTask extends App {
   //check your solution here
 }
 
