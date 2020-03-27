@@ -4,7 +4,11 @@
   * Implement Shape with three classes Circle, Rectangle and Square
   */
 
-
+/**
+  * Hint:
+  * perimeter for a circle: 2 * math.Pi * radius
+  * area for circle: math.Pi * radius * radius
+  */
 
 /**
   * Square and Rectangle are not just shapes. Refactor it.
