@@ -1,1 +1,1 @@
-trait Visitor
+//Traits
