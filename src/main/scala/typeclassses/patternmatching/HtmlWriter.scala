@@ -6,7 +6,7 @@ private case class Person(name: String, email: String)
 
 private object HtmlWriter {
   def toHtml(in: Any): String = in match {
-    case Person(name, email) => s"<div>$name</div><div>$email</div>"
+    case Person(name, email) => s"<div>$name</div>\n<div>$email</div>"
     case date: Date => s"<div>$date</div>"
     case _ => throw new Exception(s"Can't render $in to HTML")
   }
