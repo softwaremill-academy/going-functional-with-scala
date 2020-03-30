@@ -1,12 +1,6 @@
 import java.time.LocalDateTime
 
-//Let's define a Visitor
-trait Visitor {
-  def visitDate: LocalDateTime
-}
-
-case class RegisteredUser(id: String, username: String, age: Int, visitDate: LocalDateTime) extends Visitor
-case class AnonymousUser(visitDate: LocalDateTime) extends Visitor
+import patternMatching.{Visitor, AnonymousUser, RegisteredUser}
 
 val registeredUser = RegisteredUser("1", "joe", 17, LocalDateTime.now())
 val anonymousUser = AnonymousUser(LocalDateTime.now())
