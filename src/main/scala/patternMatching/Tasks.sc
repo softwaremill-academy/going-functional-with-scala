@@ -38,3 +38,10 @@ addTwoElements(List(1, 2, 3, 4))
 addTwoElements(List(1))
 addTwoElements(List(1, 2))
 addTwoElements(List())
+
+/**
+  * Using Pattern Matching add two int Options together. Remember about None values.
+  */
+
+val a = Some(1)
+val b = Some(2)
