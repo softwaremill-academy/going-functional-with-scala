@@ -1,14 +1,11 @@
+def add(x: Int, y: Int) = x + y
+
 def plus(x: Int)(y: Int) = x + y
 
-def plus3 = plus(3)(_)
-
-plus3(5)
-
-def add(x: Int, y: Int) = x + y
 
 val addFunction = add _
 
-(add _).isInstanceOf[Function2[_, _, _]]
+addFunction.isInstanceOf[Function2[_, _, _]]
 
 /**
   * The technique of converting a def method into a function
@@ -20,3 +17,5 @@ val addFunction = add _
 val addCurried = addFunction.curried
 
 addCurried(1)(2)
+
+//Pass a block of code
