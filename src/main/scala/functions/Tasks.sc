@@ -4,7 +4,7 @@
   * E.g:
   * tag("<div>", "<p>Hello world</p>", "</div>")
   * returns:
-  *  "<div><p>Hello world</p></div>"
+  * "<div><p>Hello world</p></div>"
   */
 
 def tag(prefix: String, content: String, suffix: String): String = ???
@@ -24,15 +24,17 @@ tagWithSpan("<p>Hello, World</p>")
 
 
 /**
-  * Write a partial function that is defined only for strings longer than five characters and returns a tuple of
-  * the string itself and its length
+  * Implement a partial function by implementing PartialFunction trait,
+  * that is defined only for strings longer than five characters and returns a tuple of the string itself and its length
   * E.g.
-  *  ("softwaremill", 12)
+  * ("softwaremill", 12)
   */
 
-val pf = new PartialFunction[String, (String, Int)] {
-  def isDefinedAt(x: String) = x.length > 5
+val pf = ???
 
-  def apply(v1: String) = (v1, v1.length)
-}
+/**
+  * Reimplement the function above using case blocks
+  */
+
+val zipWithSize = ???
 
