@@ -1,7 +1,7 @@
 List(1, 2, 3, 4).collect {
   case x if x == 3 || x == 4 => Some(x)
   case x if x == 1 => None
-}.flatten
+}
 
 val pf = new PartialFunction[Int, Int] {
   def isDefinedAt(x: Int) = x != 0
