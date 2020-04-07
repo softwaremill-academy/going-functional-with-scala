@@ -1,1 +1,1 @@
-//implement examples from the scriptK
+//implement examples from the script
