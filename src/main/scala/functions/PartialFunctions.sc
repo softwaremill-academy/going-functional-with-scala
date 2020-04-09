@@ -1,4 +1,4 @@
-List(1, 2, 3, 4).collect {
+List(1, 2, 3, 4, 5, 6).collect {
   case x if x == 3 || x == 4 => Some(x)
   case x if x == 1 => None
 }
@@ -9,7 +9,9 @@ val pf = new PartialFunction[Int, Int] {
   def apply(v1: Int) = v1 + 1
 }
 
-List(0, 1, 2, 3).collect(pf)
+List(0, 1, 2, 3).collect {
+  case x if x != 0 => x + 1
+}
 
 List(1, 2).map(x => x + 1)
 List(1, 2).map(_ + 1)

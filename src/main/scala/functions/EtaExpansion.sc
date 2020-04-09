@@ -6,13 +6,9 @@ val addTwo = new Function1[Int, Int] {
 
 addOne(1)
 
-addTwo.apply(2)
+def add(x: Int, y: Int) = x + y
 
-addTwo(2)
-
-def addOne(x: Int, y: Int) = x + y
-
-val eta = addOne _ //eta-expansion
+val eta = add _ //eta-expansion
 
 eta.isInstanceOf[Function2[_, _, _]]
 
