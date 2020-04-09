@@ -15,8 +15,6 @@ case class AnonymousUser(visitDate: LocalDateTime) extends Visitor
 val registeredUser = RegisteredUser("1", "joe", 17, LocalDateTime.now())
 val anonymousUser = AnonymousUser(LocalDateTime.now())
 
-def findUserById(id: String) = Some(RegisteredUser(id, "joe", 17, LocalDateTime.now().minusDays(1)))
-
 def logUser(user: Visitor) = user match {
   case RegisteredUser(_, username, _, _) ⇒ s"User $username: logged in."
   case AnonymousUser(date) ⇒ s"Anonymous user came at $date."
@@ -26,6 +24,7 @@ logUser(registeredUser)
 logUser(anonymousUser)
 
 //Option, Either examples
+def findUserById(id: String) = Some(RegisteredUser(id, "joe", 17, LocalDateTime.now().minusDays(1)))
 
 val userFromDB: Option[Visitor] = findUserById("1")
 
