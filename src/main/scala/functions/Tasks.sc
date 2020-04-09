@@ -6,22 +6,20 @@
   * returns:
   * "<div><p>Hello world</p></div>"
   */
-
-def tag(prefix: String, content: String, suffix: String): String = ???
+def tag(prefix: String, content: String, suffix: String) = prefix + content + suffix
 
 /**
   * Then write more specialized versions of it.
   */
 
-val tagWithDiv = ???
+val tagWithDiv = tag("<div>", _: String, "</div>")
 tagWithDiv("<p>Hello</p>")
 
-val tagWithSpan = ???
+val tagWithSpan = tag("<span>", _: String, "</span>")
 
 tagWithDiv("<p>Hello, World</p>")
 
 tagWithSpan("<p>Hello, World</p>")
-
 
 /**
   * Implement a partial function by implementing PartialFunction trait,
@@ -30,11 +28,18 @@ tagWithSpan("<p>Hello, World</p>")
   * ("softwaremill", 12)
   */
 
-val pf = ???
+val pf = new PartialFunction[String, (String, Int)] {
+  def isDefinedAt(x: String) = x.length > 5
+
+  def apply(v1: String) = (v1, v1.length)
+}
 
 /**
   * Reimplement the function above using case blocks
   */
 
-val zipWithSize = ???
+val zipWithSize: PartialFunction[String, (String, Int)] = {
+  case s if s.length > 5 => (s, s.length)
+}
 
+val list = List("softwaremill", "aaa").collect(zipWithSize)
