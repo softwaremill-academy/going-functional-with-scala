@@ -6,6 +6,10 @@ trait Equal[A] {
   def equal(v1: A, v2: A): Boolean
 }
 
+/**
+  * Implement implicit objects for comparing Person data. Wrap it in another singleton object.
+  */
+
 object EmailEquals {
   implicit object EmailEqual extends Equal[Person] {
     def equal(v1: Person, v2: Person): Boolean = v1.email == v2.email
