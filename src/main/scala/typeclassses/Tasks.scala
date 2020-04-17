@@ -10,18 +10,7 @@ trait Equal[A] {
   * Implement implicit objects for comparing Person data. Wrap it in another singleton object.
   */
 
-object EmailEquals {
-  implicit object EmailEqual extends Equal[Person] {
-    def equal(v1: Person, v2: Person): Boolean = v1.email == v2.email
-  }
-}
 
-object PersonDetailsEquals {
-  implicit object PersonDetailsEqual extends Equal[Person] {
-    def equal(v1: Person, v2: Person): Boolean =
-      v1.name == v2.name && v1.email == v2.email
-  }
-}
 
 /**
   * Implement Companion Object with an apply method.
