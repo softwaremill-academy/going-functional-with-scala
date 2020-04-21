@@ -1,18 +1,9 @@
 
-object Max {
-  implicit val maxOrdering = Ordering.fromLessThan[Int](_ > _)
-}
+import scala.language.implicitConversions
+implicit def double2Int = (x: Double) => x.toInt
 
-object Min {
-  implicit val minOrdering = Ordering.fromLessThan[Int](_ < _)
-}
+val x: Int = double2Int(2.3)
 
-object Implicits {
-  def sortList() = {
+implicit def intToBool(int: Int) = int == 0
 
-    import Min._
-    List(1, 2, 3).sorted
-  }
-}
-
-Implicits.sortList()
+if(intToBool(1)) true else false
