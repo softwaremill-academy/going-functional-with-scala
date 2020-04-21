@@ -1,21 +1,23 @@
-sealed trait Maybe[A] {
+sealed trait Maybe[+A] {
   def map[B](f: A => B): Maybe[B] = ???
   def flatMap[B](f: A => Maybe[B]): Maybe[B] = ???
 
-  def isEmpty: Boolean
+  def isDefined: Boolean
   def get: A
-  def getOrElse[B >: A](default: B): B = if(isEmpty) default else get
+  def getOrElse[AA >: A](default: AA): AA = if(isDefined) get else default
 }
 
 final case class Full[A](value: A) extends Maybe[A] {
-  def isEmpty: Boolean = false
+  def isDefined: Boolean = true
   def get = value
 }
 
-object Nil extends Maybe[Nothing] {
-  def isEmpty = true
+case object Nil extends Maybe[Nothing] {
+  def isDefined = false
 
   def get = throw new Exception("Nil.get")
 }
 
 val maybe: Maybe[Int] = Nil
+
+maybe.getOrElse(0)
