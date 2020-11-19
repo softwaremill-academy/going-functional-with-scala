@@ -1,9 +1,5 @@
+implicit val minOrdering = Ordering.fromLessThan[Int](_ < _)
 
-import scala.language.implicitConversions
-implicit def double2Int = (x: Double) => x.toInt
+implicit val maxOrdering = Ordering.fromLessThan[Int](_ > _)
 
-val x: Int = double2Int(2.3)
-
-implicit def intToBool(int: Int) = int == 0
-
-if(intToBool(1)) true else false
+List(4,1,2,3).sorted
