@@ -1,10 +1,12 @@
 import scala.language.implicitConversions
 
-def double2Int = (x: Double) => x.toInt
+implicit def double2Int = (x: Double) => x.toInt
 
-val x: Int = 2
+val x: Int = 2.4 // Double => Int
+
+val x: Int = double2Int(2.3)
 
 
-//implicit def intToBool(int: Int) = int == 0
+implicit def intToBool(int: Int) = int == 0
 
-//if(intToBool(1)) true else false
+if(intToBool(0)) true else false
