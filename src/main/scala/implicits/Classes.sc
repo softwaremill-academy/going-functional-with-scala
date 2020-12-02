@@ -3,8 +3,11 @@ implicit class ExtraStringMethods(val s: String) {
   //add number of vowels method
 
   def dejMiSamogloski = s.count(vowels contains _)
+  def dejSamogloskiAsOption = Option(dejMiSamogloski)
 }
 
 new ExtraStringMethods("Softwaremill").dejMiSamogloski
 
 "Softwaremill".dejMiSamogloski
+"Softwaremill".dejSamogloskiAsOption
+

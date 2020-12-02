@@ -42,10 +42,4 @@ object Application2 extends App {
 
   val personHtml = HtmlWriter[Person].toHtml(Person("John", "john@sml.com"))
   println(personHtml)
-
-  val x = List.empty[Int].collect {
-    case y => y + 1
-  }
-
-  println(s"x: $x")
 }
