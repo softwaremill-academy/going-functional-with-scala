@@ -9,9 +9,9 @@ object Monads extends App {
 
   val maybe = Full("softwaremill")
 
-  val strLength = for {
-    s <- maybe
-  } yield s.length
-
-  println(s"String length is: $strLength")
+//  val strLength = for {
+//    s <- maybe
+//  } yield s.length
+//
+//  println(s"String length is: $strLength")
 }
