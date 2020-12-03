@@ -1,29 +1,38 @@
 import scala.util.{Failure, Success, Try}
-//Let's define a function
 
+/* Let's define a function that returns Try */
 def toInt(s: String): Try[Int] =
   Try(Integer.parseInt(s.trim))
 
-// Some(_) or None
+val t: Try[String] = Try("softwaremill")
+val e: Try[String] = Try(throw new Exception("ooops"))
 
-trait Error
-case object UserError extends Error
-case object EmailError extends Error
-
-//Either[_, _] => Left(_) i Right(_)
-val either: Either[Error, Int] = Right(1)
-
-for {
-  i <- either
-} yield i + 1
-
-val t: Try[Int] = Try(1)
+/* Pattern matching examples */
 
 t match {
-  case Failure(exception) => println(s"$exception")
-  case Success(value) => println(s"$value")
+  case Failure(exception) => s"Error: $exception"
+  case Success(value) => value
 }
 
-def foo(a: Int) = throw new Exception("oops")
-Try(1).flatMap(foo) == foo(1)
+e match {
+  case Success(value) => value
+  case Failure(exception) => s"Error: $exception"
+}
+/* Try in for comprehension */
 
+for {
+  x <- toInt("1")
+  y <- toInt("2")
+} yield x + y
+
+for {
+  x <- toInt("1")
+  y <- toInt("text")
+} yield x + y
+
+/* Try's API */
+
+val eitherRight = t.toEither
+val eitherLeft = e.toEither
+
+val option = t.toOption
