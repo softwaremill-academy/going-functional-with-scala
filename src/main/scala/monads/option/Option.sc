@@ -29,9 +29,11 @@ empty match {
 
 /* Option's API */
 
+// transforming to Either
 result.toRight("Error occured")
 empty.toLeft(0)
 
+// if None then 0
 result.getOrElse(0)
 
 /* Option anti patterns */
