@@ -1,6 +1,6 @@
 package forComprehension.tasks
 
-object OptionFCTask {
+object OptionTasks {
 
   /*
   * Task 1: Using for comprehension,
