@@ -2,9 +2,7 @@ name := "going-functional-with-scala"
 
 version := "0.1"
 
-scalaVersion := "2.12.10"
-
-scalacOptions += "-Ypartial-unification"
+scalaVersion := "2.13.7"
 
 val catsDependencies = Seq(
   "org.typelevel" %% "cats-core" % "2.2.0",
