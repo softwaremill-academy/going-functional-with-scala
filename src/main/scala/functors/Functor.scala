@@ -10,19 +10,7 @@ object Maybe {
   def apply[A](value: A) = if(value == null) Empty[A]() else Full(value)
 }
 
-object Functors extends App {
-  val maybeString = Maybe("softwaremill")
-
-  val len = maybeString.map(_.length)
-
-  val length = for {
-    string <- maybeString
-  } yield string.length
-
-  println(s"Len: $len")
-  println(s"Length: $length")
-
-}
+object Functors extends App {}
 
 /**
   * Let's have a Type Constructor C[_] e.g. Option[String]
