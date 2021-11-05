@@ -11,11 +11,3 @@ val pf = new PartialFunction[Int, Int] {
 
 List(0, 1, 2, 3).collect(pf)
 
-List(1, 2).map(x => x + 1)
-List(1, 2).map(_ + 1)
-
-
-List(1, 2, 3).flatMap {
-  case x if x == 3 => List(1)
-  case _ => List()
-}

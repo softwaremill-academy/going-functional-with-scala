@@ -8,6 +8,9 @@ def add(x: Int, y: Int) = x + y
 
 def subtract(x: Int, y: Int) = x - y
 
+/**
+  * Won't compile. Add underscore at each end
+  **/
 val calculations = Map(
   "add" -> add,
   "subtract" -> subtract
