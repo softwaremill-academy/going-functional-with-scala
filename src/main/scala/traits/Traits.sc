@@ -8,16 +8,16 @@ trait Robot {
   def name: String = "I'm Robot"
 }
 
-case class Person() extends Robot with Human {
+case class PersonOrRobot() extends Robot with Human {
   override def name: String = super.name
 }
 
-case class Robocop() extends Human with Robot {
+case class RobotOrPerson() extends Human with Robot {
   override def name: String = super.name
 }
 
-val person = Person()
-person.name
+val person = PersonOrRobot()
+person.name //I'm human
 
-val robocop = Robocop()
-robocop.name
+val robocop = RobotOrPerson()
+robocop.name //I'm robot
