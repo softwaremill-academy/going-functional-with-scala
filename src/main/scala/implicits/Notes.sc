@@ -1,4 +1,6 @@
-//write your notes here
+// conversions
 
-val str = "softwaremill"
+// parameters
+
+// implicit classes
 
