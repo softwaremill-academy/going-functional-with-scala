@@ -1,33 +1,33 @@
-// Let's define a case class Box[Int]
-case class Box(value: Int)
+// Let's define a case class Maybe[Int]
+case class Maybe(value: Int)
 
 /*
-* Task 1: Using for comprehension take the value out of the Box[Int] type,
-* add 5 to it and return as Box(5).
+* Task 1: Using for comprehension take the value out of the Maybe[Int] type,
+* add 5 to it and return as Maybe(5).
 */
 
-def addFive(v1: Box) = ???
+def addFive(v1: Maybe) = ???
 
-addFive(Box(2)) // should receive Box(7)
-addFive(Box(0)) // should receive Box(5)
+addFive(Maybe(2)) // should receive Maybe(7)
+addFive(Maybe(0)) // should receive Maybe(5)
 
 /*
-* Task 2: Using for comprehension take the values out of the two Box[Int] types,
-* add them together and return in Box.
+* Task 2: Using for comprehension take the values out of the two Maybe[Int] types,
+* add them together and return in Maybe.
 */
 
-def addTwoBoxes(v1: Box, v2: Box) = ???
+def addTwoMaybes(v1: Maybe, v2: Maybe) = ???
 
-addTwoBoxes(Box(1), Box(9))   // should receive Box(10)
-addTwoBoxes(Box(0), Box(5))   // should receive Box(5)
+addTwoMaybes(Maybe(1), Maybe(9))   // should receive Maybe(10)
+addTwoMaybes(Maybe(0), Maybe(5))   // should receive Maybe(5)
 
 /*
-* Task 3: Using for comprehension take the values out of the two Box[Int] types,
+* Task 3: Using for comprehension take the values out of the two Maybe[Int] types,
 * and add them together if v2 >= 5
 */
 
-def addTwoBoxesWithFilter(v1: Box, v2: Box) = ???
+def addTwoMaybesWithFilter(v1: Maybe, v2: Maybe) = ???
 
-addTwoBoxesWithFilter(Box(1), Box(2))     // should return Box(1)
-addTwoBoxesWithFilter(Box(1), Box(5))     // should return Box(6)
-addTwoBoxesWithFilter(Box(5), Box(10))    // should return Box(15)
+addTwoMaybesWithFilter(Maybe(1), Maybe(2))     // should return Maybe(1)
+addTwoMaybesWithFilter(Maybe(1), Maybe(5))     // should return Maybe(6)
+addTwoMaybesWithFilter(Maybe(5), Maybe(10))    // should return Maybe(15)
