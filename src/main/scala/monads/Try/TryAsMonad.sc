@@ -13,5 +13,5 @@ def throwsException(x: Int) = throw new Exception("oops")
 /**
   * Does Try break Left Identity?
   */
-
+throwsException(1)
 val tryResult = Try(1).flatMap(throwsException)

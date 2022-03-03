@@ -18,3 +18,5 @@ val fooBar = getPerson("Jan Kowalski")
 println(fooBar.getClass)
 println(fooBar.firstName)
 println(fooBar.lastName)
+
+"Jan Kowalski".lastName

@@ -32,12 +32,16 @@ def isEmailCorrect(user: Visitor): Boolean = ???
   * Implement a method that takes a List[Int] and adds two first elements together
   */
 
-def addTwoElements(numbers: List[Int]): Int = ???
+def addTwoElements(numbers: List[Int]): Int = numbers match {
+  case a :: b :: _ => a + b
+  case List(a) => a
+  case _ => 0
+}
 
-addTwoElements(List(1, 2, 3, 4))
-addTwoElements(List(1))
-addTwoElements(List(1, 2))
-addTwoElements(List())
+addTwoElements(List(1, 2, 3, 4)) // 3
+addTwoElements(List(1)) // 1
+addTwoElements(List(1, 2)) // 3
+addTwoElements(List()) // 0
 
 /**
   * Using Pattern Matching add two int Options together. Remember about None values.
@@ -45,3 +49,15 @@ addTwoElements(List())
 
 val a = Some(1)
 val b = Some(2)
+
+def sumOptions(a: Option[Int], b: Option[Int]): Option[Int] = (a, b) match {
+  case (Some(x), Some(y)) => Some(x + y)
+  case _ => None
+}
+
+sumOptions(a, b)
+sumOptions(None, b)
+sumOptions(a, None)
+sumOptions(None, None)
+
+

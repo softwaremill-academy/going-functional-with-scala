@@ -1,13 +1,19 @@
 val max = 10
 val Min = 0
 
+object Test {
+  val x: Int = 10
+}
+
 def process(input: Int) {
   input match {
-    case max => println("Don't try this at home")
+    case Test.x => println("Don't try this at home")
     case Min => println("You matched min")
     case _ => println("Unreachable!!")
   }
 }
 
-process(1)
+
+
+process(10)
 

@@ -22,6 +22,7 @@ leftResult match {
 // transforming to Option[Int]
 val option: Option[Int] = rightResult.toOption
 
+
 // transforming to Seq[Int]
 val seq: Seq[Int] = rightResult.toSeq
 

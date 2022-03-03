@@ -1,33 +1,25 @@
-//Let's assume three functions
+Seq(1,2,3).map(_ * 3)
 
-def f(a: Int): Int = a + 100
-def g(a: Int): Int = a + 200
-def h(a: Int): Int = a + 300
+for {
+  x <- Seq(1,2,3)
+} yield x * 3
 
-// f(a) -> g(a) -> h(a)
+val seq = Seq(Seq(1,2), Seq(3,4))
 
-val resF = f(1)
-val resG = g(resF)
-val resH = h(resG)
+seq.map(_.map(_ * 3))
 
-val resCombined = h(g(f(1)))
+seq.flatMap(s => s.map(u => u * 3))
 
-case class Loggable[A](value: A, message: String) {
-  def map[B](f: A => B): Loggable[B] = Loggable(f(value), message)
+seq.flatMap(_.map(_ * 3))
 
-  def flatMap[B](f: A => Loggable[B]): Loggable[B] = {
-    val nextValue = f(value)
-    Loggable(nextValue.value, message + "\n" + nextValue.message)
+seq.flatMap { s =>
+  s.map { u =>
+    u * 3
   }
 }
 
-def fa(a: Int): Loggable[Int] = Loggable(a + 100, "f: a + 100")
-def ga(a: Int): Loggable[Int] = Loggable(a + 200, "f: a + 200")
-def ha(a: Int): Loggable[Int] = Loggable(a + 300, "f: a + 300")
 
-val finalResult = for {
-  fRes <- fa(1)
-  gRes <- ga(fRes)
-  hRes <- ha(gRes)
-} yield hRes
-
+for {
+  x <- seq
+  y <- x
+} yield y * 3

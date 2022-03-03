@@ -5,6 +5,19 @@ case class Movie(name: String, year: Int, rating: Double)
   * We have a Movie type and we want to convert it to XML
   **/
 
+<movie>
+  <name>name</name>
+  <year>name</year>
+  <rating>rating</rating>
+</movie>
+
+// define type class
+
+// create companion object
+
+// create implicit class
+
+// show it works
 //define type class trait
 
 //create companion object

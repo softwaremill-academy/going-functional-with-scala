@@ -1,45 +1,46 @@
 package typeclassses.implicits
 
-case class Person(name: String, email: String)
-
-//Adapter pattern
-
 trait HtmlWriter[T] {
   def toHtml(value: T): String
 }
 
-object PersonWriter extends HtmlWriter[Person] {
-  def toHtml(value: Person): String = s"<div>${value.name}</div>\n<div>${value.email}"
-}
+case class Person(name: String, email: String)
 
-//Adding implicits
+object Person {
 
-object HtmlUtil {
-  def htmlify[A](data: A)(implicit writer: HtmlWriter[A]): String = writer.toHtml(data)
-}
-
-object Application extends App {
-  //define in implicit scope
   implicit object PersonWriter extends HtmlWriter[Person] {
-    def toHtml(value: Person): String = s"<div>Name: ${value.name}</div>\n<div>Email: ${value.email}</div>"
+    override def toHtml(value: Person): String =
+      s"<div>${value.name}</div>\n<div>${value.email}</div>"
   }
 
-  val personHtml = HtmlUtil.htmlify(Person("John", "john@sml.com"))
-  println(personHtml)
+  /*implicit*/ object PersonWriterWithHiddenEmail extends HtmlWriter[Person] {
+    override def toHtml(value: Person): String =
+      s"<div>${value.name}</div>\n<div>***</div>"
+  }
 }
-
-//Interfaces using implicit parameters
 
 object HtmlWriter {
-  //def toHtml[A](value: A)(implicit writer: HtmlWriter[A]): String = writer.toHtml(value)
-  def apply[A](implicit writer: HtmlWriter[A]): HtmlWriter[A] = writer
-}
 
-object Application2 extends App {
-  implicit object PersonWriter extends HtmlWriter[Person] {
-    def toHtml(value: Person): String = s"<div>Name: ${value.name}</div>\n<div>Email: ${value.email}</div>"
+  def toHtml[T: HtmlWriter](input: T): String = implicitly[HtmlWriter[T]].toHtml(input)
+
+  implicit class HtmlWriterSyntax[T](value: T) {
+
+    def toHtml(implicit writer: HtmlWriter[T]): String = writer.toHtml(value)
   }
 
-  val personHtml = HtmlWriter[Person].toHtml(Person("John", "john@sml.com"))
-  println(personHtml)
+  implicit object IntWriter extends HtmlWriter[Int] {
+    override def toHtml(value: Int): String = s"<div>number: $value</div>"
+  }
 }
+
+object Test extends App {
+  private val person: Person = Person("Jan Kowalski", "jan@kowalski.com")
+
+  import HtmlWriter.HtmlWriterSyntax
+
+  println(HtmlWriter.toHtml(person))
+  println(person.toHtml)
+  println(42.toHtml)
+}
+
+

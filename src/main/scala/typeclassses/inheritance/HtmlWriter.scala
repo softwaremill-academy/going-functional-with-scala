@@ -1,11 +1,11 @@
 package typeclassses.inheritance
 
 trait HtmlWriter {
-  def toHtml: HTML
+  def toHtml: String
 }
 
 case class Person(name: String, email: String) extends HtmlWriter {
-  def toHtml: HTML = s"<div>$name</div>\n<div>$email</div>"
+  def toHtml: String = s"<div>$name</div>\n<div>$email</div>"
 }
 
 object InheritanceApproach extends App {

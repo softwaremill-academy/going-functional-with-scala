@@ -1,7 +1,7 @@
 import java.time.LocalDateTime
 import java.time.LocalDateTime._
 
-/*sealed */trait Status {
+sealed trait Status {
   def since: LocalDateTime
 }
 
@@ -13,12 +13,20 @@ case class Inactive(since: LocalDateTime) extends Status
 
 def process(status: Status): Unit = status match {
   case Active(since) if since.isBefore(now().minusWeeks(1)) => println("Active, older than a week")
+
   case s: Status if s.since.isBefore(now().minusMonths(1)) => println("Any older than a month")
+
   case s @ Blocked(_, "unknown") => println(s"Blocked for an unknown reason: $s")
+
   case Blocked(_, "foo" | "bar") => println("Blocked because foo or bar")
+
   case _: Active => println("Just active")
+
+
   case _: Blocked => println("Just blocked")
-//  case other => println(other) // comment out for a non-exhaustive match warning
+  case other => println(s"other: $other") // comment out for a non-exhaustive match warning
 }
 
-process(Inactive(LocalDateTime.now()))
+process(Blocked(LocalDateTime.now(), "foo"))
+process(Blocked(LocalDateTime.now(), "bar"))
+process(Blocked(LocalDateTime.now(), "baz"))

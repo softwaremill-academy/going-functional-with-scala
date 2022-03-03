@@ -9,4 +9,4 @@ val x: Int = double2Int(2.3)
 
 implicit def intToBool(int: Int) = int == 0
 
-if(intToBool(0)) true else false
+if(0) true else false

@@ -1,4 +1,4 @@
-sealed trait Maybe[A] {
+sealed trait Maybe[+A] {
   def map[B](f: A => B): Maybe[B] = ???
   def flatMap[B](f: A => Maybe[B]): Maybe[B] = ???
 

@@ -13,7 +13,7 @@ def tag(prefix: String, content: String, suffix: String): String = ???
   * Then write more specialized versions of it.
   */
 
-val tagWithDiv = ???
+val tagWithDiv: String => String = tag("<div>", _ , "</div>")
 tagWithDiv("<p>Hello</p>")
 
 val tagWithSpan = ???

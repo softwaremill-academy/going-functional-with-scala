@@ -20,5 +20,6 @@ object IOMonadExample extends App {
 object IOExample extends App {
   val helloEffect = IO { println("Hello, World")}
 
-  helloEffect.unsafeRunSync()
+  // discuss the need of choosing the right thread pool or using IOApp instead
+  helloEffect.unsafeRunSync()(cats.effect.unsafe.implicits.global)
 }

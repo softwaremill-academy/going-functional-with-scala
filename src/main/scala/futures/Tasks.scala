@@ -20,6 +20,7 @@ object Tasks extends App {
     2
   }
 
+
   // run f1 and f2 in a for-comprehension and Await.result
   // is the flow of execution as expected?
 
