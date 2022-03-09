@@ -27,3 +27,5 @@ case class Movie(name: String, year: Int, rating: Double)
 //define interface by using implicit class
 
 //check it works
+
+//create xmlPageTemplate method that uses our type classes
