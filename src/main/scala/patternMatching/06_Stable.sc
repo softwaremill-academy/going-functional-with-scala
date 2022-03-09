@@ -7,7 +7,7 @@ object Test {
 
 def process(input: Int) {
   input match {
-    case Test.x => println("Don't try this at home")
+    case max => println("Don't try this at home")
     case Min => println("You matched min")
     case _ => println("Unreachable!!")
   }

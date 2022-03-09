@@ -1,5 +1,11 @@
-val list = 1 :: 2 :: Nil // List(1, 2)
+// immutable by default - Predef
 
-List(1, 2, 3).reduceRight(_ + _)
+// sequences - interface vs implementation
 
-Map(("a", 1), ("b" -> 2))
+// appending, prepending, operators for sequences and List
+
+// Sets - union, intersection
+
+// Maps - lists of tuples, (a -> b) vs (a, b)
+
+// exercise - foldLeft, foldRight

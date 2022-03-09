@@ -1,26 +1,15 @@
-val list = List(Option(1), Option(2), Option(3))
+// demonstrate how various for-comprehensions are de-sugared
+// no yield = foreach
+// single generator + yield = map
+// multiple generators + yield = flatMap
+// filter expressions = withFilter
+// definitions = additional map to tuple
 
-for {
-  opt <- list
-  x <- opt
-} yield x * 3
+// given a list like this
+val list = List(Option(1), None, Option(2), Option(3))
 
-list.flatMap { opt =>
-  opt.map { x =>
-    x * 3
-  }
-}
-list.flatMap(opt => opt.map(x => x * 3))
+// multiply all defined values by 3  - i.e. obtain a List(3, 6, 9)
 
-case class Box[A](value: A) {
-  def map[B](f: A => B): Box[B] = Box(f(value))
-  def flatMap[B](f: A => Box[B]): Box[B] = f(value)
-//  def flatMap[B](f: A => Box[B]): Box[B] = f(value)
-}
+// why does a combination of List and Option work in a for-comprehension
 
-val boxList: List[Box[Int]] = List(Box(1), Box(2), Box(3))
-
-for {
-  b <- boxList
-  x <- b
-} yield x * 3
+// exercise - adding Maybes
