@@ -18,7 +18,3 @@ Use foldRight to write a function called ‘reverseR’ that takes a List and re
   */
 
 def reverseR[A](list: List[A]): List[A] = ???
-
-List(1, 2, 3).foldLeft("")((acc, n) => acc + n.toString)
-
-Foldable[List].foldRight(List(1, 2, 3), Eval.now(""))((n, acc) => acc.map(_.prepended(n.toString).mkString)).value
