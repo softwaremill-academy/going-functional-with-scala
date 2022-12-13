@@ -32,11 +32,7 @@ def isEmailCorrect(user: Visitor): Boolean = ???
   * Implement a method that takes a List[Int] and adds two first elements together
   */
 
-def addTwoElements(numbers: List[Int]): Int = numbers match {
-  case a :: b :: _ => a + b
-  case List(a) => a
-  case _ => 0
-}
+def addTwoElements(numbers: List[Int]): Int = ???
 
 addTwoElements(List(1, 2, 3, 4)) // 3
 addTwoElements(List(1)) // 1
@@ -50,14 +46,11 @@ addTwoElements(List()) // 0
 val a = Some(1)
 val b = Some(2)
 
-def sumOptions(a: Option[Int], b: Option[Int]): Option[Int] = (a, b) match {
-  case (Some(x), Some(y)) => Some(x + y)
-  case _ => None
-}
+def sumOptions(a: Option[Int], b: Option[Int]): Option[Int] = ???
 
-sumOptions(a, b)
-sumOptions(None, b)
-sumOptions(a, None)
-sumOptions(None, None)
+sumOptions(a, b) // Some(3)
+sumOptions(None, b) // None
+sumOptions(a, None) // None
+sumOptions(None, None) // None
 
 

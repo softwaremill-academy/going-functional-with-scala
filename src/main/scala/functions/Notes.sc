@@ -16,12 +16,9 @@
 // Int => Int => Int
 
 // multiple parameter lists -> type inference
-def f[A](a: A, f: A => Int)
-// vs
-def g[A](a: A)(f: A => Int)
 
 // partially applied functions
 
 // partial functions (collect, error handling)
 
-// exercise - partiallly applied and partial functions
+// exercise - partially applied and partial functions
